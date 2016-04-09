@@ -29,6 +29,13 @@ CREATE TABLE Event
        acceleration INT, 
        location INT,
        resolved INT, 
-       user_id INT,
-       FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE
+       device_id INT,
+       FOREIGN KEY (device_id) REFERENCES User(device_id) ON DELETE CASCADE
 );
+
+INSERT INTO User (username, password, first_name, last_name, address, city, state, zipcode, age, gender, device_id, security_question, security_answer, email) VALUES
+("johndoe", "password", "John", "Doe", "103 Elm Street", "VA", "20136", "64", "M", "SK10430", "1", "2005", "jdoe@gmail.com"),
+("maryjones", "password", "Mary", "Jones", "108 Oak Street", "VA", "20136", "68", "F", "SK30490", "1", "2008", "jdoe@gmail.com");
+
+INSERT INTO Event (heart_rate, acceleration, location, resolved, device_id) VALUES 
+("0", "0", "0", "0", "SK10430");
